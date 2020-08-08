@@ -1,0 +1,3 @@
+[submodule "samp-client-compat/urmem"]
+	path = samp-client-compat/urmem
+	url = https://github.com/spmn/urmem.git

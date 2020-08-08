@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\RakNet">
+      <UniqueIdentifier>{52f1fc39-911f-424e-8308-57f5234820b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RakNet">
+      <UniqueIdentifier>{ada14f35-7b6c-4207-b14d-315f89c7bd9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\urmem">
+      <UniqueIdentifier>{60512c24-0e84-40b0-9116-a0dfb9ff615f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RakNet\BitStream.cpp">
+      <Filter>Source Files\RakNet</Filter>
+    </ClCompile>
+    <ClCompile Include="RakNet\NetworkTypes.cpp">
+      <Filter>Source Files\RakNet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RakNet\NetworkTypes.h">
+      <Filter>Header Files\RakNet</Filter>
+    </ClInclude>
+    <ClInclude Include="RakNet\BitStream.h">
+      <Filter>Header Files\RakNet</Filter>
+    </ClInclude>
+    <ClInclude Include="urmem\urmem.hpp">
+      <Filter>Header Files\urmem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
