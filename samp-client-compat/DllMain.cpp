@@ -32,12 +32,12 @@ void __fastcall Hooked_CNetGame__Packet_ConnectionSucceeded(void *_this, void *_
     Hook_CNetGame__Packet_ConnectionSucceeded.call<urmem::calling_convention::thiscall>(_this, packet);
 }
 
-template <int CustomSkinOffset, int RemainingBytes>
+template <int CustomSkinOffset>
 bool __fastcall Hooked_BitStream__ReadArray(void* _this, void* _edx, char* output, unsigned int numberOfBytes)
 {
     bool ret = urmem::call_function<urmem::calling_convention::thiscall, bool>(hSAMPDll + 0x1F960, _this, output, numberOfBytes - 4);
 
-    memmove(output + CustomSkinOffset + 4, output + CustomSkinOffset, RemainingBytes);
+    memmove(output + CustomSkinOffset + 4, output + CustomSkinOffset, numberOfBytes - CustomSkinOffset - 4);
     *(DWORD *)(output + CustomSkinOffset) = 0;
     return ret;
 }
@@ -57,9 +57,9 @@ void InstallCompatHacks()
     // instead I'll patch the BitStream::ReadArray function to read `sizeof(struct) - 4` bytes
     // then insert a 4byte ZERO at the offset where `custom skin id` field should be
 
-    ADD_COMPAT_CALLHOOK(0xE9CE,  Hooked_BitStream__ReadArray<0x06, 0x15>); // ShowActor
-    ADD_COMPAT_CALLHOOK(0xFF1D,  Hooked_BitStream__ReadArray<0x05, 0x29>); // RequestClass
-    ADD_COMPAT_CALLHOOK(0x17AC3, Hooked_BitStream__ReadArray<0x05, 0x29>); // ScrSetSpawnInfo
+    ADD_COMPAT_CALLHOOK(0xE9CE,  Hooked_BitStream__ReadArray<0x06>); // ShowActor
+    ADD_COMPAT_CALLHOOK(0xFF1D,  Hooked_BitStream__ReadArray<0x05>); // RequestClass
+    ADD_COMPAT_CALLHOOK(0x17AC3, Hooked_BitStream__ReadArray<0x05>); // ScrSetSpawnInfo
 
     ToggleCompatHacks(false);
 }
